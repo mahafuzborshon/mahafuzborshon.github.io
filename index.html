@@ -851,11 +851,9 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+  // Cursor glow effect
   document.addEventListener('mousemove', (e) => {
     document.body.style.setProperty('--mx', e.clientX + 'px');
     document.body.style.setProperty('--my', e.clientY + 'px');
-    const glow = document.querySelector('body::before');
   });
 </script>
-</body>
-</html>
