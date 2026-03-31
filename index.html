@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Mahafuz Ahmed Borshon — Cyber Security</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0c0f;
+    --surface: #111318;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8e6e0;
+    --muted: #6b6f78;
+    --accent: #4ade80;
+    --accent-dim: rgba(74,222,128,0.1);
+    --accent-border: rgba(74,222,128,0.25);
+    --mono: 'DM Mono', monospace;
+    --serif: 'DM Serif Display', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* CURSOR */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(74,222,128,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,12,15,0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* LAYOUT */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  /* HERO */
+  #hero {
+    padding-top: 9rem;
+    padding-bottom: 5rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+    background: var(--accent-dim);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+  }
+
+  .tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 1.25rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0c0f;
+    font-weight: 500;
+    border: 1px solid var(--accent);
+  }
+
+  .btn-primary:hover { background: #86efac; border-color: #86efac; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover { border-color: rgba(255,255,255,0.15); color: var(--text); }
+
+  /* SECTION HEADERS */
+  .sec-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 14px;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .stat {
+    background: var(--surface);
+    padding: 1.5rem;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* SKILLS */
+  .skills-block { margin-bottom: 2.5rem; }
+
+  .skills-title {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 2px;
+    transition: all 0.2s;
+    letter-spacing: 0.04em;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent-border);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  /* EXPERIENCE */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .exp-item:first-of-type { border-top: none; padding-top: 0; }
+
+  .exp-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .exp-date {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .exp-desc {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .exp-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tool-badge {
+    font-size: 11px;
+    padding: 0.2rem 0.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .project-card:hover { border-color: var(--accent-border); }
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-meta {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* CERTS */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .cert-item:hover { border-color: var(--accent-border); }
+
+  .cert-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 0.2rem;
+    font-weight: 400;
+  }
+
+  .cert-issuer {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contact-intro {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent-border);
+    color: var(--text);
+    background: var(--accent-dim);
+  }
+
+  .contact-link-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .edu-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .edu-uni {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .edu-cgpa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 12px;
+    color: var(--accent);
+    border: 1px solid var(--accent-border);
+    background: var(--accent-dim);
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    border-top: 1px solid var(--border);
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    main { padding: 0 1.25rem; }
+    .about-grid, .contact-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    h1 { font-size: 2.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">// mahafuz.sec</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="tag">Available for opportunities</div>
+    <h1>Md Mahafuz<br><em>Ahmed Borshon</em></h1>
+    <p class="hero-desc">Ethical Hacker & Web Security Specialist. I help organizations find vulnerabilities, harden systems, and respond to incidents — before the adversaries do.</p>
+    <div class="hero-links">
+      <a href="mailto:mahafuzborshon@gmail.com" class="btn btn-primary">Get in touch →</a>
+      <a href="https://linkedin.com/in/mahafuzborshon/" class="btn btn-outline" target="_blank">LinkedIn ↗</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="sec-label">01 — About</p>
+    <h2>Security by <em>instinct</em></h2>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>Trained Ethical Hacker with hands-on experience in penetration testing, vulnerability scanning, malware analysis, and security hardening across real-world lab environments.</p>
+        <p>Currently pursuing B.Sc. in Cyber Security Engineering at University of Frontier Technology, Bangladesh — with a strong foundation in both offensive and defensive security disciplines.</p>
+        <p>I think like an attacker to defend like a specialist.</p>
+      </div>
+      <div>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Lab environments tested</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Intrusions detected</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Core certifications</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3.5</div>
+            <div class="stat-label">CGPA / 4.0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="sec-label">02 — Skills</p>
+    <h2>Tools of the <em>trade</em></h2>
+    <div class="fade-in">
+      <div class="skills-block">
+        <div class="skills-title">Offensive Security</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Penetration Testing</span>
+          <span class="skill-tag">Privilege Escalation</span>
+          <span class="skill-tag">OWASP Top 10</span>
+          <span class="skill-tag">Web App Security</span>
+          <span class="skill-tag">Exploit Development</span>
+          <span class="skill-tag">Red Teaming</span>
+        </div>
+      </div>
+      <div class="skills-block">
+        <div class="skills-title">Defensive Security</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Network Security Monitoring</span>
+          <span class="skill-tag">SIEM Analysis</span>
+          <span class="skill-tag">Incident Response</span>
+          <span class="skill-tag">Vulnerability Assessment</span>
+          <span class="skill-tag">Risk Assessment</span>
+        </div>
+      </div>
+      <div class="skills-block">
+        <div class="skills-title">Tools & Platforms</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Nmap</span>
+          <span class="skill-tag">Burp Suite</span>
+          <span class="skill-tag">Metasploit</span>
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">Nessus</span>
+          <span class="skill-tag">Acunetix</span>
+          <span class="skill-tag">Snort</span>
+          <span class="skill-tag">Wazuh</span>
+          <span class="skill-tag">OSINT Tools</span>
+          <span class="skill-tag">Gobuster</span>
+        </div>
+      </div>
+      <div class="skills-block">
+        <div class="skills-title">Technical Foundations</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Linux / Bash</span>
+          <span class="skill-tag">Python Scripting</span>
+          <span class="skill-tag">Networking Fundamentals</span>
+          <span class="skill-tag">Linux Security</span>
+          <span class="skill-tag">Command Line</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="sec-label">03 — Experience</p>
+    <h2>Where I've <em>worked</em></h2>
+    <div class="fade-in">
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-date">Apr 2025 — May 2025</span>
+          <span class="exp-company">CodemanBD</span>
+          <span class="exp-company" style="font-size:11px;color:var(--muted)">Onsite</span>
+        </div>
+        <div>
+          <p class="exp-role">Junior Penetration Tester Intern</p>
+          <p class="exp-desc">Conducted reconnaissance and vulnerability assessments on 10+ lab environments, identifying misconfigurations and exploitable services. Performed web application testing and successfully exploited multiple RCE vulnerabilities in controlled environments.</p>
+          <p class="exp-desc">Monitored network traffic using Wireshark and intrusion detection tools, detecting 5+ simulated intrusion attempts. Prepared detailed vulnerability reports with risk ratings and remediation recommendations.</p>
+          <div class="exp-tools">
+            <span class="tool-badge">Nmap</span>
+            <span class="tool-badge">Metasploit</span>
+            <span class="tool-badge">OSINT</span>
+            <span class="tool-badge">Wireshark</span>
+            <span class="tool-badge">pkexec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="sec-label">04 — Projects</p>
+    <h2>Selected <em>work</em></h2>
+    <div class="projects-grid fade-in">
+      <div class="project-card">
+        <p class="project-label">Penetration Test</p>
+        <p class="project-title">Drupal Exploitation & Privilege Escalation</p>
+        <p class="project-desc">Full penetration test on a vulnerable Drupal environment. Discovered exposed directories through enumeration, extracted database credentials from configuration files, and achieved root access by exploiting SUID misconfigurations and Exim4 vulnerability.</p>
+        <p class="project-meta">Metasploit · Mar–Apr 2025</p>
+      </div>
+      <div class="project-card">
+        <p class="project-label">Security Assessment</p>
+        <p class="project-title">Full Security Assessment — RCE Exploitation</p>
+        <p class="project-desc">Structured penetration testing engagement against a vulnerable machine. Enumerated services using Nmap, identified five vulnerabilities (4 Critical, 1 Medium), and exploited an unauthenticated RCE vulnerability to obtain kernel-level access.</p>
+        <p class="project-meta">Nmap · OWASP · PTES · Feb–Mar 2025</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <p class="sec-label">05 — Certifications</p>
+    <h2>Credentials & <em>training</em></h2>
+    <div class="certs-grid fade-in">
+      <div class="cert-item">
+        <div class="cert-icon">▲</div>
+        <div>
+          <p class="cert-name">eJPT — Junior Penetration Tester</p>
+          <p class="cert-issuer">INE Security · 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">◆</div>
+        <div>
+          <p class="cert-name">Certified Red Team Analyst</p>
+          <p class="cert-issuer">Cyber Warfare · 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">●</div>
+        <div>
+          <p class="cert-name">Ethical Hacking</p>
+          <p class="cert-issuer">CodemanBD · 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">◈</div>
+        <div>
+          <p class="cert-name">Certified Cybersecurity Educator Professional</p>
+          <p class="cert-issuer">Red Team Leaders · 2026</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">■</div>
+        <div>
+          <p class="cert-name">Introduction to Network Analysis</p>
+          <p class="cert-issuer">Security Blue Team · 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">◇</div>
+        <div>
+          <p class="cert-name">Introduction to Cybersecurity</p>
+          <p class="cert-issuer">Cisco Networking Academy · 2025</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">▶</div>
+        <div>
+          <p class="cert-name">Generative AI</p>
+          <p class="cert-issuer">LinkedIn Learning · 2026</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">◉</div>
+        <div>
+          <p class="cert-name">SEO & SEO II</p>
+          <p class="cert-issuer">HubSpot · 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="sec-label">06 — Contact</p>
+    <h2>Let's <em>connect</em></h2>
+    <div class="contact-grid fade-in">
+      <div>
+        <p class="contact-intro">I'm open to freelance security engagements, internship opportunities, and collaborations. Whether it's a pentest, a security review, or just a conversation — reach out.</p>
+        <div class="edu-block">
+          <p class="edu-degree">B.Sc. Cyber Security Engineering</p>
+          <p class="edu-uni">University of Frontier Technology, Bangladesh</p>
+          <span class="edu-cgpa">CGPA: 3.5 / 4.0</span>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:mahafuzborshon@gmail.com" class="contact-link">
+          <svg class="contact-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
+          </svg>
+          mahafuzborshon@gmail.com
+        </a>
+        <a href="tel:+8801706478671" class="contact-link">
+          <svg class="contact-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.1 5.18 2 2 0 0 1 5.07 3h3a2 2 0 0 1 2 1.72c.13 1 .38 2 .74 2.91a2 2 0 0 1-.45 2.11L9.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.36 1.9.61 2.91.74A2 2 0 0 1 22 17z"/>
+          </svg>
+          +88 01706478671
+        </a>
+        <a href="https://linkedin.com/in/mahafuzborshon/" target="_blank" class="contact-link">
+          <svg class="contact-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          linkedin.com/in/mahafuzborshon
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Md Mahafuz Ahmed Borshon — Built with precision.
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.addEventListener('mousemove', (e) => {
+    document.body.style.setProperty('--mx', e.clientX + 'px');
+    document.body.style.setProperty('--my', e.clientY + 'px');
+    const glow = document.querySelector('body::before');
+  });
+</script>
+</body>
+</html>
