@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Mahafuz Borshon | Cyber Security Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --text: #111318;
+      --text-muted: #4B5563;
+      --accent: #1D4ED8;
+      --border: #E5E7EB;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F7F8FA;
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+    .resume-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      padding: 3rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    .print-bar {
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.875rem;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    header {
+      border-bottom: 2px solid var(--text);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 1.125rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .contact-row a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .contact-row a:hover {
+      color: var(--accent);
+    }
+    section {
+      margin-bottom: 1.5rem;
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.875rem;
+      color: var(--accent);
+    }
+    .item {
+      margin-bottom: 1rem;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+    .item-sub {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+    ul {
+      padding-left: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    li { margin-bottom: 0.25rem; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+    }
+    .skill-cat {
+      font-weight: 600;
+      color: var(--text);
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .print-bar { display: none; }
+      .resume-container { border: none; box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-bar">
+    <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+    <button onclick="window.print()" class="btn">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-container">
+    <header>
+      <h1>Mahafuz Borshon</h1>
+      <div class="subtitle">Cyber Security Engineer & Penetration Tester</div>
+      <div class="contact-row">
+        <span>📍 Bangladesh</span>
+        <span>✉️ <a href="mailto:mahafuzborshon@gmail.com">mahafuzborshon@gmail.com</a></span>
+        <span>🌐 <a href="https://mahafuzborshon.github.io">mahafuzborshon.github.io</a></span>
+        <span>💼 <a href="https://linkedin.com/in/mahafuzborshon">LinkedIn</a></span>
+        <span>💻 <a href="https://github.com/mahafuzborshon">GitHub</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="item">
+        <div class="item-header">
+          <span>B.Sc. in Cyber Security Engineering</span>
+          <span>Expected 2026</span>
+        </div>
+        <div class="item-sub">
+          <span>University of Frontier Technology</span>
+          <span>CGPA: 3.85 / 4.00</span>
+        </div>
+        <ul>
+          <li><strong>Relevant Coursework:</strong> Network Security & Cryptography, Ethical Hacking & Pentesting, Computer Systems Architecture, Database Security, Incident Response & SIEM Architecture, Reverse Engineering.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Core Technical Certifications</h2>
+      <div class="item">
+        <div class="item-header">
+          <span>eJPT — eLearnSecurity Junior Penetration Tester</span>
+          <span>INE Security</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span>CRTA — Certified Red Team Analyst</span>
+          <span>CyberWarfare Labs</span>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span>CompTIA Security+</span>
+          <span>CompTIA</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hands-On Security Experience</h2>
+      <div class="item">
+        <div class="item-header">
+          <span>Cyber Security Intern / Junior Analyst</span>
+          <span>CodemanBD</span>
+        </div>
+        <div class="item-sub">
+          <span>Offensive & Defensive Security Operations</span>
+          <span>2023 — Present</span>
+        </div>
+        <ul>
+          <li>Conducted vulnerability assessments on web applications and network infrastructure, identifying OWASP Top 10 vulnerabilities.</li>
+          <li>Implemented Splunk SIEM detection rules, monitoring endpoint telemetry and successfully identifying 5+ simulated lab intrusions.</li>
+          <li>Authored comprehensive remediation reports and hardening guidelines for internal IT infrastructure.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Featured Security Projects</h2>
+      <div class="item">
+        <div class="item-header">
+          <span>Enterprise Active Directory Penetration Testing Lab</span>
+          <span>Active Directory, Kerberos, BloodHound</span>
+        </div>
+        <ul>
+          <li>Constructed a multi-domain lab to execute Kerberoasting, AS-REP Roasting, and Golden Ticket attacks, demonstrating domain privilege escalation.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span>Hybrid SIEM & Threat Detection with Suricata & Splunk</span>
+          <span>Splunk SPL, Suricata, Sysmon</span>
+        </div>
+        <ul>
+          <li>Configured network IDS and endpoint logging pipeline, authoring custom correlation rules mapped to MITRE ATT&CK techniques.</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-header">
+          <span>Automated Web Vulnerability Scanner & OWASP Auditor</span>
+          <span>Python, AsyncIO, BeautifulSoup, APIs</span>
+        </div>
+        <ul>
+          <li>Built a high-performance multi-threaded CLI tool to automate SQLi and XSS vulnerability discovery with structured reporting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div>
+          <div class="skill-cat">Offensive Security:</div>
+          <div>Active Directory Pentesting, Web App Security, Privilege Escalation, Metasploit, Burp Suite Pro, BloodHound.</div>
+        </div>
+        <div>
+          <div class="skill-cat">Defensive Security & SOC:</div>
+          <div>Splunk, Suricata IDS/IPS, Sysmon, Incident Response, Log Analysis, MITRE ATT&CK Mapping.</div>
+        </div>
+        <div>
+          <div class="skill-cat">Networking & Systems:</div>
+          <div>TCP/IP, Wireshark, Linux Server Hardening, Windows Server AD, Docker, Cloud Security (AWS).</div>
+        </div>
+        <div>
+          <div class="skill-cat">Scripting & Tooling:</div>
+          <div>Python, Bash, PowerShell, C/C++, SQL, Git, Nmap, Ghidra.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
