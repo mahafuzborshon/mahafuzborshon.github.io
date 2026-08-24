@@ -22,7 +22,6 @@ function initNavbar() {
   const navMenu = document.getElementById('nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  // Sticky header shadow on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
       header.classList.add('scrolled');
@@ -31,7 +30,6 @@ function initNavbar() {
     }
   });
 
-  // Mobile menu toggle
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
       const isExpanded = hamburger.classList.toggle('active');
@@ -39,7 +37,6 @@ function initNavbar() {
       hamburger.setAttribute('aria-expanded', isExpanded);
     });
 
-    // Close menu when clicking nav links
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -58,7 +55,7 @@ function initScrollspy() {
   const navLinks = document.querySelectorAll('.nav-link');
 
   function updateActiveLink() {
-    const scrollY = window.scrollY + 120; // Offset for header
+    const scrollY = window.scrollY + 120;
 
     sections.forEach((section) => {
       const sectionHeight = section.offsetHeight;
@@ -104,7 +101,6 @@ function initScrollReveal() {
 
     revealElements.forEach((el) => observer.observe(el));
   } else {
-    // Fallback for older browsers
     revealElements.forEach((el) => el.classList.add('is-visible'));
   }
 }
@@ -118,7 +114,6 @@ function initProjectFilters() {
 
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      // Update active button
       filterBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -145,120 +140,91 @@ function initProjectFilters() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Technical Report & Writeup Modal Viewer
+   5. Technical Report & Writeup Modal Viewer (Matched to Real Resume Projects)
    -------------------------------------------------------------------------- */
 const PROJECT_REPORTS = {
-  ad_pentest: {
-    title: 'Active Directory Penetration Testing & Lateral Movement Lab',
-    badge: 'Offensive Security',
-    date: 'Security Assessment Report',
+  drupal_exploitation: {
+    title: 'Drupal Exploitation and Privilege Escalation | Metasploit',
+    badge: 'Web & Privilege Escalation',
+    date: 'March 2025 – April 2025',
     executiveSummary:
-      'Simulated internal penetration test against an enterprise Active Directory domain environment containing multiple domain controllers, Windows 10/11 endpoints, and segmented trust boundaries.',
+      'Executed a full-scope penetration test against a vulnerable Drupal web application environment. Uncovered sensitive database credentials from configuration files and escalated privileges to root by exploiting SUID misconfigurations and an Exim4 vulnerability.',
     methodology: [
-      'External & Internal Reconnaissance via BloodHound and Nmap',
-      'Kerberoasting & AS-REP Roasting for service account password extraction',
-      'Unconstrained Delegation exploitation leading to Golden Ticket forging',
-      'Pass-the-Hash / Pass-the-Ticket lateral movement across child domains',
-      'Privilege Escalation from unprivileged domain user to Enterprise Admin',
+      'Comprehensive web application reconnaissance and directory fuzzing using Gobuster and Nmap',
+      'Extracted database connection credentials directly from exposed Drupal configuration files',
+      'Exploited SUID binary misconfigurations and local Exim4 privilege escalation vector',
+      'Obtained unrestricted root shell access on the underlying Linux host',
     ],
     findings: [
       {
         severity: 'CRITICAL',
-        title: 'Weak Kerberos Service Principal Name (SPN) Encryption',
-        desc: 'Extracted crackable TGS tickets for high-privilege MSSQL service account using targeted Kerberoasting techniques.',
+        title: 'Exim4 Local Privilege Escalation & SUID Misconfiguration',
+        desc: 'Uncovered vulnerable local mail transfer agent binary with improper permissions, allowing elevation from www-data to full root.',
       },
       {
         severity: 'HIGH',
-        title: 'Over-permissioned ACLs on Group Objects',
-        desc: 'GenericAll permissions allowed unprivileged user account to reset passwords on Domain Admin delegates.',
+        title: 'Hardcoded Cleartext Database Credentials in Configuration',
+        desc: 'Sensitive database credentials stored without restriction in Drupal configuration files.',
       },
     ],
     remediation:
-      'Enforced AES-256 Kerberos encryption, rotated service passwords to 30+ character random passphrases, deployed Managed Service Accounts (gMSA), and audited AD tiering architecture according to the ESAE model.',
+      'Sanitized file permissions on web root directories, removed unnecessary SUID bit permissions on system binaries, and updated Exim4 to the latest patched release.',
     repoUrl: 'https://github.com/mahafuzborshon',
   },
-  siem_soc: {
-    title: 'Hybrid SIEM Deployment & Automated Threat Detection',
-    badge: 'Defensive Security',
-    date: 'Defensive Architecture & Telemetry',
+  full_security_assessment: {
+    title: 'Full Security Assessment | Nmap, RCE Exploitation (Target: 10.201.91.88)',
+    badge: 'Network & RCE Pentest',
+    date: 'February 2025 – March 2025',
     executiveSummary:
-      'Designed and deployed an enterprise threat detection pipeline leveraging Splunk Enterprise, Suricata NIDS, Sysmon, and Elastic Agent to monitor and alert on adversary tactics mapped to the MITRE ATT&CK framework.',
+      'Conducted a structured penetration testing engagement following the OWASP Testing Guide and PTES methodology against target machine 10.201.91.88. Identified five distinct vulnerabilities (4 Critical, 1 Medium) and successfully exploited an unauthenticated Remote Code Execution flaw to obtain kernel-level access.',
     methodology: [
-      'Ingested Sysmon telemetry across Windows endpoints for process creation and LSASS memory access',
-      'Configured Suricata rules for signature-based network intrusion detection & beaconing analysis',
-      'Authored 15+ custom Splunk SPL correlation searches targeting credential dumping and C2 beacons',
-      'Executed Atomic Red Team test scenarios to validate detection efficacy and mean-time-to-detect (MTTD)',
+      'Port and service enumeration using Nmap scripts and custom reconnaissance workflows',
+      'Vulnerability identification and threat classification (4 Critical, 1 Medium severity)',
+      'Exploitation of an unauthenticated Remote Code Execution (RCE) vector to gain initial access',
+      'Post-exploitation enumeration achieving kernel-level control and documenting findings to PTES standards',
     ],
     findings: [
       {
-        severity: 'METRIC',
-        title: '5+ Simulated Lab Intrusions Successfully Detected',
-        desc: 'Immediate alerting generated for Cobalt Strike beaconing patterns, Mimikatz injections, and privilege escalation scripts.',
+        severity: 'CRITICAL',
+        title: 'Unauthenticated Remote Code Execution (RCE)',
+        desc: 'Exposed vulnerable service endpoint permitted remote arbitrary command injection without prior authentication.',
       },
       {
-        severity: 'IMPROVEMENT',
-        title: 'Reduced False-Positive Telemetry Noise by 42%',
-        desc: 'Tuned baseline alerting filters for benign administrative PowerShell execution.',
+        severity: 'CRITICAL',
+        title: 'Kernel-Level System Compromise',
+        desc: 'Direct path from initial service compromise to complete host takeover.',
       },
     ],
     remediation:
-      'Established automated containment runbooks, enriched logs with threat intelligence feeds (VirusTotal/AbuseIPDB), and configured real-time alerting to SOC Slack channels.',
+      'Isolated vulnerable service from public network exposure, implemented strict input validation and least-privilege service accounts, and applied official vendor security patches.',
     repoUrl: 'https://github.com/mahafuzborshon',
   },
-  vuln_scanner: {
-    title: 'Automated Web Vulnerability Scanner & OWASP Top 10 Auditor',
-    badge: 'Security Tooling',
-    date: 'Vulnerability Research & Python Tool',
+  network_intrusion_soc: {
+    title: 'Network Traffic Analysis & Simulated Intrusion Detection',
+    badge: 'Defensive Security & SIEM',
+    date: 'CodemanBD Lab Operations (2025)',
     executiveSummary:
-      'Developed a modular, multi-threaded vulnerability assessment engine in Python to identify high-risk security flaws in web applications, including SQL Injection, Reflected/Stored XSS, CSRF, and misconfigured HTTP security headers.',
+      'Monitored network traffic using Wireshark, Snort, and Wazuh across 10+ simulated lab environments. Successfully analyzed packet streams and detected 5+ simulated intrusion attempts.',
     methodology: [
-      'Asynchronous crawler utilizing BeautifulSoup and HTTP session pools for endpoint discovery',
-      'Smart payload injection module with dynamic boundary escaping and response diffing',
-      'Integration with OWASP ZAP API for comprehensive baseline comparison',
-      'Automated CVSS 3.1 score calculation and formatted executive PDF/JSON report generation',
+      'Continuous packet capture and deep protocol inspection in Wireshark',
+      'Configured signature-based detection rules in Snort and host monitoring in Wazuh',
+      'Identified brute force, port scans, and malicious payload delivery attempts across simulated lab networks',
+      'Prepared detailed incident reports with risk ratings and actionable remediation guidance',
     ],
     findings: [
       {
-        severity: 'EFFICIENCY',
-        title: '10x Throughput over Synchronous Scanners',
-        desc: 'Leveraged Python AsyncIO to scan 500+ endpoints concurrently without triggering standard rate limits.',
+        severity: 'DETECTION',
+        title: '5+ Simulated Intrusions Detected in Real Time',
+        desc: 'Successfully intercepted and correlated port sweeps, Metasploit handlers, and unauthorized shell spawns.',
       },
       {
-        severity: 'ACCURACY',
-        title: 'Context-Aware False-Positive Filtering',
-        desc: 'Implemented statistical content-length and error-code verification to eliminate noise.',
+        severity: 'AUTOMATION',
+        title: 'Linux Bash Script Automation',
+        desc: 'Automated repetitive log filtering and packet parsing tasks using custom Linux command-line scripts.',
       },
     ],
     remediation:
-      'Open-sourced security tool for DevOps pipelines (CI/CD SAST/DAST integration) with detailed remediation recommendations for development teams.',
-    repoUrl: 'https://github.com/mahafuzborshon',
-  },
-  forensics_lab: {
-    title: 'Memory Forensics & Ransomware Reverse Engineering Sandbox',
-    badge: 'Threat Research',
-    date: 'Malware & Forensics Report',
-    executiveSummary:
-      'Isolated analysis of simulated ransomware and dropper samples within a secure, network-isolated sandbox environment using Volatility 3, Ghidra, and Wireshark.',
-    methodology: [
-      'Volatile memory extraction and analysis of infected Windows targets using Volatility 3',
-      'Disassembly and decompilation of obfuscated binaries in Ghidra to pinpoint API hooking and crypto routines',
-      'Traffic inspection of DNS tunneling and encrypted C2 communications',
-      'Extracted Indicators of Compromise (IoCs) compiled into standardized YARA rules and STIX/TAXII format',
-    ],
-    findings: [
-      {
-        severity: 'IOC DETECTED',
-        title: 'Hidden Process Injection & Unhooked NTDLL',
-        desc: 'Uncovered process hollowing mechanism injecting into svchost.exe to bypass standard EDR hooks.',
-      },
-      {
-        severity: 'CRYPTOGRAPHY',
-        title: 'Hardcoded Fallback Keys in Early Dropper Stage',
-        desc: 'Identified static encryption seeds enabling key recovery prior to command-and-control connection.',
-      },
-    ],
-    remediation:
-      'Distributed custom YARA detection signatures and recommended proactive memory-integrity policies (Credential Guard & HVCI).',
+      'Hardened firewall access lists, deployed automated intrusion prevention triggers, and tuned SIEM correlation alerts.',
     repoUrl: 'https://github.com/mahafuzborshon',
   },
 };
@@ -279,7 +245,7 @@ function initModals() {
 
     modalBody.innerHTML = `
       <div style="margin-bottom: 1.5rem;">
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
           <span class="project-category-tag">${data.badge}</span>
           <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">${data.date}</span>
         </div>
@@ -330,7 +296,7 @@ function initModals() {
 
       <div style="margin-bottom: 1.75rem;">
         <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; font-family: var(--font-mono);">
-          Remediation & Defense Architecture
+          Remediation & Hardening Guidelines
         </h4>
         <p style="font-size: 0.875rem; color: var(--text-body); line-height: 1.6;">${data.remediation}</p>
       </div>
@@ -338,7 +304,7 @@ function initModals() {
       <div style="display: flex; align-items: center; justify-content: flex-end; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
         <a href="${data.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-          View Code & Documentation on GitHub
+          View Profile &amp; Repositories on GitHub
         </a>
       </div>
     `;
@@ -407,7 +373,6 @@ function initClipboard() {
           showToast(`Copied "${textToCopy}" to clipboard!`);
         });
       } else {
-        // Fallback
         const textarea = document.createElement('textarea');
         textarea.value = textToCopy;
         textarea.style.position = 'fixed';
@@ -448,25 +413,16 @@ function initContactForm() {
 
     const originalText = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <svg class="radar-pulse" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-      Sending message...
-    `;
+    submitBtn.innerHTML = `Sending message...`;
 
-    // Construct mailto link fallback for instant real-world connection
     setTimeout(() => {
       const subject = encodeURIComponent(`[Portfolio Contact] ${subjectInput.value || 'Cybersecurity Inquiry'}`);
       const body = encodeURIComponent(`From: ${nameInput.value} (${emailInput.value})\n\n${messageInput.value}`);
       
-      // Success feedback
-      submitBtn.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        Message Prepared!
-      `;
+      submitBtn.innerHTML = `Message Prepared!`;
       submitBtn.classList.remove('btn-primary');
       submitBtn.classList.add('btn-outline-green');
 
-      // Trigger mail client
       window.location.href = `mailto:mahafuzborshon@gmail.com?subject=${subject}&body=${body}`;
 
       setTimeout(() => {
