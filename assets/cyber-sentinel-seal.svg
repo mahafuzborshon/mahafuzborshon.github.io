@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Top Arc (starts left, curves over top to right) -->
+    <path id="seal-arc-top" d="M 62,200 A 138,138 0 0,1 338,200" fill="none"/>
+    <!-- Bottom Arc (starts left, curves under bottom to right, upright text) -->
+    <path id="seal-arc-bottom" d="M 52,200 A 148,148 0 0,0 348,200" fill="none"/>
+    
+    <!-- Gradients -->
+    <linearGradient id="seal-grad-cyan-mint" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <radialGradient id="seal-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <style>
+    .wolf-poly-base { fill: #0f172a; stroke: #00f0ff; stroke-width: 1.5; stroke-linejoin: round; }
+    .wolf-poly-cyan { fill: #00f0ff; fill-opacity: 0.85; stroke: #00f0ff; stroke-width: 1.2; }
+    .wolf-poly-mint { fill: #10b981; fill-opacity: 0.85; stroke: #10b981; stroke-width: 1.2; }
+    .wolf-poly-dark { fill: #0a1120; fill-opacity: 0.95; stroke: #00f0ff; stroke-opacity: 0.4; stroke-width: 1.2; }
+    .wolf-poly-mid  { fill: #1e293b; fill-opacity: 0.9; stroke: #38bdf8; stroke-opacity: 0.6; stroke-width: 1.2; }
+    .wolf-eye-glow  { fill: #00f0ff; filter: drop-shadow(0 0 6px #00f0ff); }
+  </style>
+
+  <!-- Background Ambience -->
+  <circle cx="200" cy="200" r="190" fill="url(#seal-glow)" />
+
+  <!-- Outer Rings & Tactical Radar Elements -->
+  <circle cx="200" cy="200" r="175" fill="none" stroke="rgba(0, 240, 255, 0.25)" stroke-width="1.5" stroke-dasharray="6,4" />
+  <circle cx="200" cy="200" r="162" fill="#080c16" stroke="url(#seal-grad-cyan-mint)" stroke-width="3" />
+  <circle cx="200" cy="200" r="118" fill="#0c1220" stroke="rgba(0, 240, 255, 0.45)" stroke-width="1.5" />
+  
+  <!-- Radar Crosshair Nodes -->
+  <line x1="200" y1="28" x2="200" y2="46" stroke="#00f0ff" stroke-width="2"/>
+  <line x1="200" y1="354" x2="200" y2="372" stroke="#00f0ff" stroke-width="2"/>
+  <line x1="28" y1="200" x2="46" y2="200" stroke="#00f0ff" stroke-width="2"/>
+  <line x1="354" y1="200" x2="372" y2="200" stroke="#00f0ff" stroke-width="2"/>
+
+  <!-- Curved Engraved Brand Typography -->
+  <text font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-size="14.5" font-weight="700" fill="#f8fafc" letter-spacing="4.5">
+    <textPath href="#seal-arc-top" startOffset="50%" text-anchor="middle">MAHAFUZ BORSHON</textPath>
+  </text>
+  <text font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#00f0ff" letter-spacing="3.2">
+    <textPath href="#seal-arc-bottom" startOffset="50%" text-anchor="middle">• BE PERSISTENT • BE UNDEFEATED •</textPath>
+  </text>
+
+  <!-- Central Low-Poly Cyber Sentinel Wolf -->
+  <g transform="translate(200, 200) scale(0.68) translate(-200, -200)">
+    <!-- Ears -->
+    <polygon points="150,190 165,100 200,165" class="wolf-poly-mid" />
+    <polygon points="250,190 235,100 200,165" class="wolf-poly-mid" />
+    <polygon points="165,100 185,150 200,165" class="wolf-poly-cyan" />
+    <polygon points="235,100 215,150 200,165" class="wolf-poly-mint" />
+
+    <!-- Crown / Forehead -->
+    <polygon points="185,150 200,135 215,150 200,175" class="wolf-poly-dark" />
+    <polygon points="165,175 185,150 200,175" class="wolf-poly-mid" />
+    <polygon points="235,175 215,150 200,175" class="wolf-poly-mid" />
+
+    <!-- Cheek Fluffs -->
+    <polygon points="135,215 150,190 175,215" class="wolf-poly-cyan" />
+    <polygon points="265,215 250,190 225,215" class="wolf-poly-mint" />
+    <polygon points="125,250 135,215 170,245" class="wolf-poly-dark" />
+    <polygon points="275,250 265,215 230,245" class="wolf-poly-dark" />
+
+    <!-- Eyes & Brow -->
+    <polygon points="165,190 185,195 175,205" class="wolf-eye-glow" />
+    <polygon points="235,190 215,195 225,205" class="wolf-eye-glow" />
+    <polygon points="175,205 185,195 200,215 185,230" class="wolf-poly-cyan" />
+    <polygon points="225,205 215,195 200,215 215,230" class="wolf-poly-mint" />
+
+    <!-- Bridge & Muzzle -->
+    <polygon points="185,230 200,215 215,230 200,265" class="wolf-poly-mid" />
+    <polygon points="170,245 185,230 200,265 185,285" class="wolf-poly-dark" />
+    <polygon points="230,245 215,230 200,265 215,285" class="wolf-poly-dark" />
+
+    <!-- Nose & Chin -->
+    <polygon points="192,265 208,265 200,278" fill="#00f0ff" />
+    <polygon points="185,285 200,265 215,285 200,310" class="wolf-poly-cyan" />
+  </g>
+</svg>
