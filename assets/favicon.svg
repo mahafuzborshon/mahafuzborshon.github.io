@@ -1,5 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#1D4ED8"/>
-  <path d="M16 6L7 10V16C7 21.5 10.8 26.6 16 28C21.2 26.6 25 21.5 25 16V10L16 6Z" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M16 11V22M12 15L16 11L20 15" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- High-Contrast Squircle Background -->
+  <rect width="32" height="32" rx="7" fill="#070a12"/>
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="6.25" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.8"/>
+  
+  <!-- Centered, High-Visibility Cyber Sentinel Wolf -->
+  <g transform="translate(16, 16.5) scale(0.115) translate(-200, -200)">
+    <!-- Ears -->
+    <polygon points="150,190 165,95 200,165" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+    <polygon points="250,190 235,95 200,165" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+    <polygon points="165,95 185,150 200,165" fill="#00f0ff" />
+    <polygon points="235,95 215,150 200,165" fill="#10b981" />
+    
+    <!-- Forehead / Crown -->
+    <polygon points="185,150 200,130 215,150 200,175" fill="#0f172a" stroke="#00f0ff" stroke-width="2" />
+    <polygon points="165,175 185,150 200,175" fill="#38bdf8" />
+    <polygon points="235,175 215,150 200,175" fill="#34d399" />
+
+    <!-- Cheek Fluffs -->
+    <polygon points="130,215 150,190 175,215" fill="#00f0ff" />
+    <polygon points="270,215 250,190 225,215" fill="#10b981" />
+    <polygon points="120,250 130,215 170,245" fill="#0ea5e9" />
+    <polygon points="280,250 270,215 230,245" fill="#059669" />
+
+    <!-- Eyes (Ultra-High Contrast Glow) -->
+    <polygon points="160,188 185,195 172,206" fill="#ffffff" stroke="#00f0ff" stroke-width="3" />
+    <polygon points="240,188 215,195 228,206" fill="#ffffff" stroke="#00f0ff" stroke-width="3" />
+
+    <!-- Snout & Bridge -->
+    <polygon points="172,206 185,195 200,215 185,232" fill="#00f0ff" />
+    <polygon points="228,206 215,195 200,215 215,232" fill="#10b981" />
+    <polygon points="185,232 200,215 215,232 200,268" fill="#38bdf8" />
+    <polygon points="170,245 185,232 200,268 185,288" fill="#0284c7" />
+    <polygon points="230,245 215,232 200,268 215,288" fill="#047857" />
+
+    <!-- Nose & Chin -->
+    <polygon points="190,268 210,268 200,280" fill="#ffffff" />
+    <polygon points="185,288 200,268 215,288 200,315" fill="#00f0ff" />
+  </g>
 </svg>
