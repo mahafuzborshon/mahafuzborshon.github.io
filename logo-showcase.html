@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahafuz Borshon — Brand Identity &amp; Logo Design Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #07090e;
+      --bg-surface: #0e131f;
+      --bg-card: #141a29;
+      --bg-card-hover: #192236;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(0, 240, 255, 0.4);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --cyan: #00f0ff;
+      --cyan-glow: rgba(0, 240, 255, 0.35);
+      --mint: #10b981;
+      --mint-glow: rgba(16, 185, 129, 0.35);
+      --gold: #f59e0b;
+      --card-radius: 18px;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f4f6fb;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-active: rgba(0, 163, 255, 0.5);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --cyan: #0284c7;
+      --cyan-glow: rgba(2, 132, 199, 0.2);
+      --mint: #059669;
+      --mint-glow: rgba(5, 150, 105, 0.2);
+      --gold: #d97706;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.04) 0%, transparent 40%);
+    }
+
+    /* Top Bar */
+    .topbar {
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-active);
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--mint));
+      color: #07090e;
+      border: none;
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px var(--cyan-glow);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1350px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+      width: 100%;
+    }
+
+    .header-intro {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .header-intro h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.8rem;
+    }
+
+    .header-intro h1 span {
+      background: linear-gradient(135deg, var(--cyan), var(--mint));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-intro p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .option-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .option-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .option-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-active);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 25px var(--cyan-glow);
+    }
+
+    .option-card:hover::before {
+      opacity: 1;
+    }
+
+    .option-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .option-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(0, 240, 255, 0.1);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+    }
+
+    .option-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-top: 0.4rem;
+    }
+
+    .option-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+
+    /* Logo Canvas Box */
+    .logo-canvas {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo-canvas::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+    }
+
+    .logo-svg {
+      width: 100%;
+      height: 100%;
+      max-height: 290px;
+      filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.2));
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .option-card:hover .logo-svg {
+      filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.45));
+      transform: scale(1.02);
+    }
+
+    /* Strengths Pill list */
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .feature-item {
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text-muted);
+    }
+
+    .feature-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--mint);
+      flex-shrink: 0;
+    }
+
+    /* Card Actions */
+    .card-actions {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .card-actions .btn {
+      flex: 1;
+      justify-content: center;
+    }
+
+    /* Real-World Mockup Section */
+    .mockup-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--card-radius);
+      padding: 3rem 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .mockup-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.6rem 1.4rem;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--cyan);
+      color: #07090e;
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px var(--cyan-glow);
+    }
+
+    .mockup-display {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      min-height: 280px;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tab-content {
+      display: none;
+      width: 100%;
+    }
+
+    .tab-content.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Website Header Preview */
+    .header-preview-bar {
+      background: #0b0f19;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-mock-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Business Card Preview */
+    .business-card-mock {
+      width: 480px;
+      height: 270px;
+      background: linear-gradient(135deg, #11151e 0%, #080a0f 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 2.2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-foil-shine {
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* App Icon / Favicon Preview */
+    .icon-grid-mock {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .app-icon-squircle {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(145deg, #141b2b, #090d15);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px var(--cyan-glow);
+    }
+
+    .favicon-circle {
+      width: 48px;
+      height: 48px;
+      background: #0b0f19;
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #0f172a;
+      border: 1px solid var(--cyan);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px var(--cyan-glow);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* SVG Low-Poly Wolf Styles */
+    .wolf-poly-base { fill: #0f172a; stroke: #00f0ff; stroke-width: 1.5; stroke-linejoin: round; }
+    .wolf-poly-cyan { fill: #00f0ff; fill-opacity: 0.85; stroke: #00f0ff; stroke-width: 1.2; }
+    .wolf-poly-mint { fill: #10b981; fill-opacity: 0.85; stroke: #10b981; stroke-width: 1.2; }
+    .wolf-poly-dark { fill: #0a1120; fill-opacity: 0.95; stroke: #00f0ff; stroke-opacity: 0.4; stroke-width: 1.2; }
+    .wolf-poly-mid  { fill: #1e293b; fill-opacity: 0.9; stroke: #38bdf8; stroke-opacity: 0.6; stroke-width: 1.2; }
+    .wolf-eye-glow  { fill: #00f0ff; filter: drop-shadow(0 0 6px #00f0ff); }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand-title">
+      <span>MAHAFUZ BORSHON</span>
+      <span class="badge-tag">CYBER SENTINEL IDENTITY</span>
+    </div>
+    <div class="controls">
+      <button class="btn" id="theme-toggle" aria-label="Toggle Theme">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <span>Toggle Theme</span>
+      </button>
+      <a href="index.html" class="btn btn-primary">Back to Portfolio</a>
+    </div>
+  </header>
+
+  <!-- Container -->
+  <main class="container">
+    
+    <div class="header-intro">
+      <span class="badge-tag" style="margin-bottom: 0.8rem; display: inline-block;">Visual Brand Identity Exploration</span>
+      <h1>Select Your <span>Cyber Sentinel</span> Concept</h1>
+      <p>Three distinct typographic and artistic integrations designed around the low-poly Cyber Wolf emblem, solving the disconnected text problem.</p>
+    </div>
+
+    <!-- 3 Options Grid -->
+    <div class="options-grid">
+
+      <!-- ================= OPTION 1: TACTICAL CIRCULAR SEAL ================= -->
+      <div class="option-card" id="card-opt1">
+        <div class="option-header">
+          <div>
+            <div class="option-num">CONCEPT 01</div>
+            <h3 class="option-title">Tactical Circular Seal</h3>
+            <p class="option-desc">Curved Engraved Perimeter Badge</p>
+          </div>
+        </div>
+
+        <div class="logo-canvas">
+          <svg class="logo-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Arc Paths for Curved Text -->
+              <!-- Top Arc (starts left, curves over top to right) -->
+              <path id="arc-top-1" d="M 62,200 A 138,138 0 0,1 338,200" fill="none"/>
+              <!-- Bottom Arc (starts left, curves under bottom to right, upright text) -->
+              <path id="arc-bottom-1" d="M 52,200 A 148,148 0 0,0 348,200" fill="none"/>
+              <linearGradient id="grad-cyan-mint-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="100%" stop-color="#10b981" />
+              </linearGradient>
+            </defs>
+
+            <!-- Outer Rings & Radar Elements -->
+            <circle cx="200" cy="200" r="175" fill="none" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" stroke-dasharray="6,4" />
+            <circle cx="200" cy="200" r="162" fill="#080c16" stroke="url(#grad-cyan-mint-1)" stroke-width="3" />
+            <circle cx="200" cy="200" r="118" fill="#0c1220" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.5" />
+            
+            <!-- Radar crosshairs -->
+            <line x1="200" y1="28" x2="200" y2="46" stroke="#00f0ff" stroke-width="2"/>
+            <line x1="200" y1="354" x2="200" y2="372" stroke="#00f0ff" stroke-width="2"/>
+            <line x1="28" y1="200" x2="46" y2="200" stroke="#00f0ff" stroke-width="2"/>
+            <line x1="354" y1="200" x2="372" y2="200" stroke="#00f0ff" stroke-width="2"/>
+
+            <!-- Curved Engraved Typography -->
+            <text font-family="'Space Grotesk', 'Inter', sans-serif" font-size="14.5" font-weight="700" fill="#f8fafc" letter-spacing="4.5">
+              <textPath href="#arc-top-1" startOffset="50%" text-anchor="middle">MAHAFUZ BORSHON</textPath>
+            </text>
+            <text font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" fill="#00f0ff" letter-spacing="3.2">
+              <textPath href="#arc-bottom-1" startOffset="50%" text-anchor="middle">• BE PERSISTENT • BE UNDEFEATED •</textPath>
+            </text>
+
+            <!-- Central Low-Poly Cyber Wolf (Scale adjusted) -->
+            <g transform="translate(200, 200) scale(0.68) translate(-200, -200)">
+              <!-- Ears -->
+              <polygon points="150,190 165,100 200,165" class="wolf-poly-mid" />
+              <polygon points="250,190 235,100 200,165" class="wolf-poly-mid" />
+              <polygon points="165,100 185,150 200,165" class="wolf-poly-cyan" />
+              <polygon points="235,100 215,150 200,165" class="wolf-poly-mint" />
+
+              <!-- Crown / Forehead -->
+              <polygon points="185,150 200,135 215,150 200,175" class="wolf-poly-dark" />
+              <polygon points="165,175 185,150 200,175" class="wolf-poly-mid" />
+              <polygon points="235,175 215,150 200,175" class="wolf-poly-mid" />
+
+              <!-- Cheek Fluffs -->
+              <polygon points="135,215 150,190 175,215" class="wolf-poly-cyan" />
+              <polygon points="265,215 250,190 225,215" class="wolf-poly-mint" />
+              <polygon points="125,250 135,215 170,245" class="wolf-poly-dark" />
+              <polygon points="275,250 265,215 230,245" class="wolf-poly-dark" />
+
+              <!-- Eyes & Brow -->
+              <polygon points="165,190 185,195 175,205" class="wolf-eye-glow" />
+              <polygon points="235,190 215,195 225,205" class="wolf-eye-glow" />
+              <polygon points="175,205 185,195 200,215 185,230" class="wolf-poly-cyan" />
+              <polygon points="225,205 215,195 200,215 215,230" class="wolf-poly-mint" />
+
+              <!-- Bridge & Muzzle -->
+              <polygon points="185,230 200,215 215,230 200,265" class="wolf-poly-mid" />
+              <polygon points="170,245 185,230 200,265 185,285" class="wolf-poly-dark" />
+              <polygon points="230,245 215,230 200,265 215,285" class="wolf-poly-dark" />
+
+              <!-- Nose & Chin -->
+              <polygon points="192,265 208,265 200,278" fill="#00f0ff" />
+              <polygon points="185,285 200,265 215,285 200,310" class="wolf-poly-cyan" />
+            </g>
+          </svg>
+        </div>
+
+        <ul class="feature-list">
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Zero detached text:</strong> Typography is fused directly into the badge border.
+          </li>
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Tactical &amp; Authoritative:</strong> Ideal for security seals, patches, &amp; enterprise coins.
+          </li>
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Includes Slogan:</strong> Displays *"Be persistent • Be Undefeated"* cleanly.
+          </li>
+        </ul>
+
+        <div class="card-actions">
+          <button class="btn btn-copy" onclick="copySvg('card-opt1')">Copy SVG</button>
+          <button class="btn btn-primary" onclick="selectConcept('Tactical Circular Seal')">Choose Concept</button>
+        </div>
+      </div>
+
+      <!-- ================= OPTION 2: HUD ANGULAR GEOMETRIC ================= -->
+      <div class="option-card" id="card-opt2">
+        <div class="option-header">
+          <div>
+            <div class="option-num">CONCEPT 02</div>
+            <h3 class="option-title">Cyber-HUD Framed</h3>
+            <p class="option-desc">Angular Cuts with Tech Framing Brackets</p>
+          </div>
+        </div>
+
+        <div class="logo-canvas">
+          <svg class="logo-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad-bracket" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f0ff" />
+                <stop offset="100%" stop-color="#10b981" />
+              </linearGradient>
+            </defs>
+
+            <!-- Tech HUD Corner Framing Brackets -->
+            <path d="M 40,80 L 40,40 L 80,40" fill="none" stroke="url(#grad-bracket)" stroke-width="2.5" />
+            <path d="M 360,80 L 360,40 L 320,40" fill="none" stroke="url(#grad-bracket)" stroke-width="2.5" />
+            <path d="M 40,320 L 40,360 L 80,360" fill="none" stroke="url(#grad-bracket)" stroke-width="2.5" />
+            <path d="M 360,320 L 360,360 L 320,360" fill="none" stroke="url(#grad-bracket)" stroke-width="2.5" />
+
+            <!-- Status Indicator Dots -->
+            <circle cx="50" cy="50" r="3" fill="#00f0ff" />
+            <circle cx="350" cy="50" r="3" fill="#10b981" />
+            <text x="50" y="348" font-family="'JetBrains Mono', monospace" font-size="8" fill="#64748b" letter-spacing="1.5">SYS.SEC // ACTIVE</text>
+            <text x="350" y="348" font-family="'JetBrains Mono', monospace" font-size="8" fill="#00f0ff" text-anchor="end" letter-spacing="1.5">0xMB_LOCK</text>
+
+            <!-- Cyber Wolf (Upper center) -->
+            <g transform="translate(200, 150) scale(0.68) translate(-200, -200)">
+              <!-- Ears -->
+              <polygon points="150,190 165,100 200,165" class="wolf-poly-mid" />
+              <polygon points="250,190 235,100 200,165" class="wolf-poly-mid" />
+              <polygon points="165,100 185,150 200,165" class="wolf-poly-cyan" />
+              <polygon points="235,100 215,150 200,165" class="wolf-poly-mint" />
+
+              <!-- Crown / Forehead -->
+              <polygon points="185,150 200,135 215,150 200,175" class="wolf-poly-dark" />
+              <polygon points="165,175 185,150 200,175" class="wolf-poly-mid" />
+              <polygon points="235,175 215,150 200,175" class="wolf-poly-mid" />
+
+              <!-- Cheek Fluffs -->
+              <polygon points="135,215 150,190 175,215" class="wolf-poly-cyan" />
+              <polygon points="265,215 250,190 225,215" class="wolf-poly-mint" />
+              <polygon points="125,250 135,215 170,245" class="wolf-poly-dark" />
+              <polygon points="275,250 265,215 230,245" class="wolf-poly-dark" />
+
+              <!-- Eyes & Brow -->
+              <polygon points="165,190 185,195 175,205" class="wolf-eye-glow" />
+              <polygon points="235,190 215,195 225,205" class="wolf-eye-glow" />
+              <polygon points="175,205 185,195 200,215 185,230" class="wolf-poly-cyan" />
+              <polygon points="225,205 215,195 200,215 215,230" class="wolf-poly-mint" />
+
+              <!-- Bridge & Muzzle -->
+              <polygon points="185,230 200,215 215,230 200,265" class="wolf-poly-mid" />
+              <polygon points="170,245 185,230 200,265 185,285" class="wolf-poly-dark" />
+              <polygon points="230,245 215,230 200,265 215,285" class="wolf-poly-dark" />
+
+              <!-- Nose & Chin -->
+              <polygon points="192,265 208,265 200,278" fill="#00f0ff" />
+              <polygon points="185,285 200,265 215,285 200,310" class="wolf-poly-cyan" />
+            </g>
+
+            <!-- Custom Geometric Typography Lockup -->
+            <!-- Circuit trace linking wolf to name -->
+            <path d="M 200,230 L 200,250 M 140,250 L 260,250" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1.5" />
+            <circle cx="140" cy="250" r="2.5" fill="#00f0ff" />
+            <circle cx="260" cy="250" r="2.5" fill="#10b981" />
+
+            <text x="200" y="280" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="3.5">MAHAFUZ BORSHON</text>
+            <text x="200" y="304" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" fill="url(#grad-bracket)" text-anchor="middle" letter-spacing="3">BE PERSISTENT • BE UNDEFEATED</text>
+          </svg>
+        </div>
+
+        <ul class="feature-list">
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Architectural HUD Integration:</strong> Brackets and circuit lines bind the wolf &amp; typography.
+          </li>
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>High-Tech &amp; Tactical:</strong> Feels like an elite cybersecurity command dashboard.
+          </li>
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Bespoke Layout:</strong> Purpose-built for security reports and developer branding.
+          </li>
+        </ul>
+
+        <div class="card-actions">
+          <button class="btn btn-copy" onclick="copySvg('card-opt2')">Copy SVG</button>
+          <button class="btn btn-primary" onclick="selectConcept('Cyber-HUD Framed')">Choose Concept</button>
+        </div>
+      </div>
+
+      <!-- ================= OPTION 3: EXECUTIVE HORIZONTAL LOCKUP ================= -->
+      <div class="option-card" id="card-opt3">
+        <div class="option-header">
+          <div>
+            <div class="option-num">CONCEPT 03</div>
+            <h3 class="option-title">Executive Minimalist</h3>
+            <p class="option-desc">Side-by-Side Modern Tech Lockup</p>
+          </div>
+        </div>
+
+        <div class="logo-canvas">
+          <svg class="logo-svg" viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad-divider" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgba(0, 240, 255, 0)" />
+                <stop offset="50%" stop-color="#00f0ff" />
+                <stop offset="100%" stop-color="rgba(16, 185, 129, 0)" />
+              </linearGradient>
+            </defs>
+
+            <!-- Wolf Icon on Left (Circular Squircle Backing) -->
+            <rect x="25" y="35" width="150" height="150" rx="30" fill="#0b101c" stroke="rgba(0, 240, 255, 0.3)" stroke-width="1.5" />
+            
+            <g transform="translate(100, 110) scale(0.55) translate(-200, -200)">
+              <!-- Ears -->
+              <polygon points="150,190 165,100 200,165" class="wolf-poly-mid" />
+              <polygon points="250,190 235,100 200,165" class="wolf-poly-mid" />
+              <polygon points="165,100 185,150 200,165" class="wolf-poly-cyan" />
+              <polygon points="235,100 215,150 200,165" class="wolf-poly-mint" />
+
+              <!-- Crown / Forehead -->
+              <polygon points="185,150 200,135 215,150 200,175" class="wolf-poly-dark" />
+              <polygon points="165,175 185,150 200,175" class="wolf-poly-mid" />
+              <polygon points="235,175 215,150 200,175" class="wolf-poly-mid" />
+
+              <!-- Cheek Fluffs -->
+              <polygon points="135,215 150,190 175,215" class="wolf-poly-cyan" />
+              <polygon points="265,215 250,190 225,215" class="wolf-poly-mint" />
+              <polygon points="125,250 135,215 170,245" class="wolf-poly-dark" />
+              <polygon points="275,250 265,215 230,245" class="wolf-poly-dark" />
+
+              <!-- Eyes & Brow -->
+              <polygon points="165,190 185,195 175,205" class="wolf-eye-glow" />
+              <polygon points="235,190 215,195 225,205" class="wolf-eye-glow" />
+              <polygon points="175,205 185,195 200,215 185,230" class="wolf-poly-cyan" />
+              <polygon points="225,205 215,195 200,215 215,230" class="wolf-poly-mint" />
+
+              <!-- Bridge & Muzzle -->
+              <polygon points="185,230 200,215 215,230 200,265" class="wolf-poly-mid" />
+              <polygon points="170,245 185,230 200,265 185,285" class="wolf-poly-dark" />
+              <polygon points="230,245 215,230 200,265 215,285" class="wolf-poly-dark" />
+
+              <!-- Nose & Chin -->
+              <polygon points="192,265 208,265 200,278" fill="#00f0ff" />
+              <polygon points="185,285 200,265 215,285 200,310" class="wolf-poly-cyan" />
+            </g>
+
+            <!-- Glowing Laser Divider -->
+            <line x1="200" y1="40" x2="200" y2="180" stroke="url(#grad-divider)" stroke-width="2" />
+
+            <!-- Clean Typography Hierarchy on Right -->
+            <text x="220" y="85" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="800" fill="#f8fafc" letter-spacing="2">MAHAFUZ</text>
+            <text x="220" y="112" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="800" fill="#00f0ff" letter-spacing="2">BORSHON</text>
+            
+            <text x="220" y="142" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#10b981" letter-spacing="1.5">CYBERSECURITY</text>
+            <text x="220" y="160" font-family="'Inter', sans-serif" font-size="7.5" font-weight="500" fill="#94a3b8" letter-spacing="0.5">Be persistent, Be Undefeated</text>
+          </svg>
+        </div>
+
+        <ul class="feature-list">
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Perfect for Web Headers:</strong> Compact horizontal layout fits navigation bars smoothly.
+          </li>
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Independent Standalone Mark:</strong> The wolf squircle mark can be used alone as an app icon.
+          </li>
+          <li class="feature-item">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <strong>Enterprise Polish:</strong> Clean, uncluttered, and highly readable.
+          </li>
+        </ul>
+
+        <div class="card-actions">
+          <button class="btn btn-copy" onclick="copySvg('card-opt3')">Copy SVG</button>
+          <button class="btn btn-primary" onclick="selectConcept('Executive Minimalist')">Choose Concept</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Real-World Mockup Interactive Tab Section -->
+    <section class="mockup-section">
+      <div class="section-title-wrap">
+        <span class="badge-tag" style="margin-bottom: 0.6rem; display: inline-block;">Context &amp; Touchpoints</span>
+        <h2 class="section-title">Live Application Previews</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">See how the Cyber Sentinel identity performs across real-world digital and physical surfaces.</p>
+      </div>
+
+      <div class="mockup-tabs">
+        <button class="tab-btn active" onclick="switchTab('nav-mock')">Website Header</button>
+        <button class="tab-btn" onclick="switchTab('app-mock')">Mobile App &amp; Favicon</button>
+        <button class="tab-btn" onclick="switchTab('card-mock')">Foil Business Card</button>
+      </div>
+
+      <div class="mockup-display">
+
+        <!-- Tab 1: Header Preview -->
+        <div id="nav-mock" class="tab-content active">
+          <div class="header-preview-bar">
+            <!-- Mini Logo -->
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+              <div style="width: 38px; height: 38px; background: #141b2b; border: 1px solid rgba(0, 240, 255, 0.4); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 400 400">
+                  <polygon points="150,190 165,100 200,165" class="wolf-poly-mid" />
+                  <polygon points="250,190 235,100 200,165" class="wolf-poly-mid" />
+                  <polygon points="165,100 185,150 200,165" class="wolf-poly-cyan" />
+                  <polygon points="235,100 215,150 200,165" class="wolf-poly-mint" />
+                  <polygon points="185,150 200,135 215,150 200,175" class="wolf-poly-dark" />
+                  <polygon points="165,190 185,195 175,205" class="wolf-eye-glow" />
+                  <polygon points="235,190 215,195 225,205" class="wolf-eye-glow" />
+                  <polygon points="185,230 200,215 215,230 200,265" class="wolf-poly-mid" />
+                  <polygon points="185,285 200,265 215,285 200,310" class="wolf-poly-cyan" />
+                </svg>
+              </div>
+              <div style="display: flex; flex-direction: column;">
+                <span style="font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; line-height: 1.1;">mahafuz<span style="color: #00f0ff;">.sec</span></span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #10b981;">UNDFEATED DEFENSE</span>
+              </div>
+            </div>
+
+            <!-- Mock Nav Links -->
+            <div class="nav-mock-links">
+              <span>About</span>
+              <span>Services</span>
+              <span>Offensive Pentest</span>
+              <span>Writeups</span>
+              <span style="color: #00f0ff; font-weight: 600;">Contact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: App Icon & Favicon -->
+        <div id="app-mock" class="tab-content">
+          <div class="icon-grid-mock">
+            <div style="text-align: center;">
+              <div class="app-icon-squircle">
+                <svg width="60" height="60" viewBox="0 0 400 400">
+                  <polygon points="150,190 165,100 200,165" class="wolf-poly-mid" />
+                  <polygon points="250,190 235,100 200,165" class="wolf-poly-mid" />
+                  <polygon points="165,100 185,150 200,165" class="wolf-poly-cyan" />
+                  <polygon points="235,100 215,150 200,165" class="wolf-poly-mint" />
+                  <polygon points="185,150 200,135 215,150 200,175" class="wolf-poly-dark" />
+                  <polygon points="165,175 185,150 200,175" class="wolf-poly-mid" />
+                  <polygon points="235,175 215,150 200,175" class="wolf-poly-mid" />
+                  <polygon points="135,215 150,190 175,215" class="wolf-poly-cyan" />
+                  <polygon points="265,215 250,190 225,215" class="wolf-poly-mint" />
+                  <polygon points="165,190 185,195 175,205" class="wolf-eye-glow" />
+                  <polygon points="235,190 215,195 225,205" class="wolf-eye-glow" />
+                  <polygon points="175,205 185,195 200,215 185,230" class="wolf-poly-cyan" />
+                  <polygon points="225,205 215,195 200,215 215,230" class="wolf-poly-mint" />
+                  <polygon points="185,230 200,215 215,230 200,265" class="wolf-poly-mid" />
+                  <polygon points="192,265 208,265 200,278" fill="#00f0ff" />
+                  <polygon points="185,285 200,265 215,285 200,310" class="wolf-poly-cyan" />
+                </svg>
+              </div>
+              <span style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.6rem; display: block;">Mobile App (iOS/Android)</span>
+            </div>
+
+            <div style="text-align: center;">
+              <div class="favicon-circle">
+                <svg width="28" height="28" viewBox="0 0 400 400">
+                  <polygon points="165,100 185,150 200,165" fill="#00f0ff" />
+                  <polygon points="235,100 215,150 200,165" fill="#10b981" />
+                  <polygon points="165,190 185,195 175,205" fill="#00f0ff" />
+                  <polygon points="235,190 215,195 225,205" fill="#00f0ff" />
+                  <polygon points="185,285 200,265 215,285 200,310" fill="#00f0ff" />
+                </svg>
+              </div>
+              <span style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.6rem; display: block;">Browser Favicon (32x32)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Business Card -->
+        <div id="card-mock" class="tab-content">
+          <div class="business-card-mock">
+            <div class="card-foil-shine"></div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 800; color: #ffffff; letter-spacing: 1.5px;">MAHAFUZ BORSHON</div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #00f0ff; letter-spacing: 1.2px;">CHIEF SECURITY ARCHITECT</div>
+              </div>
+              <div style="width: 44px; height: 44px;">
+                <svg width="100%" height="100%" viewBox="0 0 400 400">
+                  <polygon points="150,190 165,100 200,165" fill="#e2e8f0" />
+                  <polygon points="250,190 235,100 200,165" fill="#94a3b8" />
+                  <polygon points="165,100 185,150 200,165" fill="#00f0ff" />
+                  <polygon points="235,100 215,150 200,165" fill="#10b981" />
+                  <polygon points="165,190 185,195 175,205" fill="#00f0ff" />
+                  <polygon points="235,190 215,195 225,205" fill="#00f0ff" />
+                  <polygon points="185,285 200,265 215,285 200,310" fill="#00f0ff" />
+                </svg>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; font-size: 0.75rem; color: #94a3b8;">
+              <div style="display: flex; flex-direction: column; gap: 0.2rem;">
+                <span>info@mahafuzborshon.com</span>
+                <span>mahafuzborshon.github.io</span>
+              </div>
+              <div style="font-family: 'JetBrains Mono', monospace; color: #10b981; font-size: 0.65rem;">
+                BE PERSISTENT • BE UNDEFEATED
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <svg width="18" height="18" fill="none" stroke="#00f0ff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-msg">SVG Code Copied to Clipboard!</span>
+  </div>
+
+  <script>
+    // Theme Switcher
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+    });
+
+    // Tab Switcher
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Toast
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // Copy SVG
+    function copySvg(cardId) {
+      const card = document.getElementById(cardId);
+      const svg = card.querySelector('svg.logo-svg');
+      if (svg) {
+        navigator.clipboard.writeText(svg.outerHTML).then(() => {
+          showToast('SVG vector code copied to clipboard!');
+        });
+      }
+    }
+
+    // Select Concept Alert
+    function selectConcept(name) {
+      showToast('Selected: ' + name + '! Ready to integrate.');
+    }
+  </script>
+</body>
+</html>
